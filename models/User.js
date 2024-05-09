@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
+    // compares entered password with hashed password
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
@@ -26,6 +27,7 @@ User.init(
             allowNull: false,
             unique: true,
             validate: {
+                // validates the email is an email
                 isEmail: true,
             },
         },
@@ -33,12 +35,14 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
+                // password must be at least 8 characters
                 len: [8],
             },
         },
     },
     {
         hooks: {
+            // hashes the password and sends it back before updating database
             async beforeCreate(newUserData) {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
