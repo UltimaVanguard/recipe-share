@@ -30,6 +30,9 @@ Recipe.init(
         image: {
             type: DataTypes.STRING,
         },
+        owner_id: {
+            type: DataTypes.INTEGER,
+        },
     },
     {
         sequelize,
