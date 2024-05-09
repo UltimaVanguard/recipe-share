@@ -1,22 +1,8 @@
 const express = require("express").Router;
-const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const { User } = [];
-const app = express();
-
 // Middleware
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
-app.use(cookieParser());
-
-const sessionSecret = process.env.SESSION_SECRET || "default_secret";
-
-app.use(
-  session({
-    secret: sessionSecret,
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+app.use(cookieParser());const { User } = [];
 
 // Routes
 
