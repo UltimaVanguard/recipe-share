@@ -1,79 +1,73 @@
-const express = require("express");
-const cookieParser = require("cookie-parser");
-const app = express(); // Create an Express application instance
+const router = require('express').Router();
+const { User } = require('../../models');
 
-// Middleware
-app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
-app.use(cookieParser());
-
-// Define your users array or use a database
-const users = [];
-
-// Routes
-
-// Sign up route
-app.get("/signup", (req, res) => {
-  res.send(`
-        <form action="/signup" method="POST">
-            <input type="text" name="username" placeholder="Username" required><br>
-            <input type="password" name="password" placeholder="Password" required><br>
-            <button type="submit">Sign Up</button>
-        </form>
-    `);
-});
-
-app.post("/signup", async (req, res) => {
-  const { username, password } = req.body;
+// CREATE new user
+router.post('/', async (req, res) => {
   try {
-    // Check if username already exists
-    if (users.some((user) => user.username === username)) {
-      res.send("Username already exists! Please choose another one.");
-    } else {
-      // Create new user and store in mock database
-      users.push({ username, password });
-      res.send("User signed up successfully!");
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
-app.post("/login", async (req, res) => {
-  const { username, password } = req.body;
-  try {
-    // Check if username and password match
-    const user = users.find(
-      (user) => user.username === username && user.password === password
-    );
-    if (user) {
-      // Set session data to indicate user is logged in
-      req.session.isLoggedIn = true;
-      res.send("Logged in successfully!");
-    } else {
-      res.send("Invalid username or password!");
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
-app.get("/logout", async (req, res) => {
-  try {
-    // Destroy session data to log user out
-    req.session.destroy((err) => {
-      if (err) {
-        console.error(err);
-        res.send("Error logging out!");
-      } else {
-        res.send("Logged out successfully!");
-      }
+    const dbUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
     });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res.status(200).json(dbUserData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
-module.exports = app;
+// Login
+router.post('/login', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+
+    if (!dbUserData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    const validPassword = await dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res
+        .status(200)
+        .json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Logout
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+module.exports = router;
