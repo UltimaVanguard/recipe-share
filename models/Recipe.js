@@ -24,7 +24,7 @@ Recipe.init(
             allowNull: false,
         },
         ingredients: {
-            type: DataTypes.ARRAY,
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
         },
         image: {
