@@ -1,8 +1,13 @@
-const express = require("express").Router;
+const express = require("express");
 const cookieParser = require("cookie-parser");
+const app = express(); // Create an Express application instance
+
 // Middleware
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
-app.use(cookieParser());const { User } = [];
+app.use(cookieParser());
+
+// Define your users array or use a database
+const users = [];
 
 // Routes
 
@@ -71,5 +76,4 @@ app.get("/logout", async (req, res) => {
   }
 });
 
-
-module.exports = router;
+module.exports = app;
