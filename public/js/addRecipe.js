@@ -10,9 +10,9 @@ const addRecipe = async (event) => {
 
       
     if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/profile');
     } else {
-        alert('Failed to log in.');
+        alert('Failed to add recipe. You might already have this recipe added!');
     }
 }
 
