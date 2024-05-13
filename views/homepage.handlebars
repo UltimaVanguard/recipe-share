@@ -1,0 +1,35 @@
+
+<div class="container center">
+    <div class="main">
+        <div>
+            <h1>Recipe Catalog</h1>
+        </div>
+        <div class="buttons">
+            <div class="search-box">
+                    {{!-- <input type="text" class="search-txt" placeholder="Search..."> --}}
+                    {{!-- <a href="#" class="search-btn"><i class='bx bx-search'></i></a> --}}
+                    <a href="/recipes" class="search-btn">View All</a>
+            </div>
+            {{#if loggedIn}}
+                <div class="button-recipe">
+                    + New recipe
+                </div>
+            {{/if}}
+        </div>       
+    </div>
+    <hr>
+    {{!-- creates a card for each recipe --}}
+    <section class="card">
+        {{#each recipes as |recipe|}}
+            <h3><a href="/recipes/{{recipe.id}}">{{recipe.name}}</a><h3>
+            {{#each recipe.users as |user|}}
+                {{#if (findRecipeOwner recipe.owner_id user.user_recipe.user_id)}}
+                    <p>by {{user.username}}</p>
+                {{/if}}
+            {{/each}}
+            <img src="#" alt="{{recipes.image}}">
+            <p>{{recipe.description}}</p>
+            <hr>
+        {{/each}} 
+    </section>
+</div>
