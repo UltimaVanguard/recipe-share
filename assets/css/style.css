@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    min-height: 100vh;
+    background: url('/assets/img/back-reg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgb(255, 255, 255. .2);
+    backdrop-filter:blur(5px);
+    box-shadow: 0 0 10px rgb(0, 0, 0. .2);
+}
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+/* logo */
+
+.logo {
+    font-size: 80px;
+    color: #fff;
+
+}
+
+/* button */
+
+.button-login {
+    margin-top: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    display: inline-block;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    padding: 10px 25px;
+    color: #fff;
+    border-color: #212529;
+}
+
+/* container */
+
+.center {
+    margin: 0 auto;
+}
+
+.container {
+    width: 1200px;
+    height: 1100px;
+    background-color: #0009;
+
+}
+
+.container h1 {
+    display: flex;
+    color: #fff;
+    font-size: 40px;
+}
+
+/* main */
+
+.main {
+    display: flex;
+    padding: 10px;
+}
+
+/* search */
+
+.search-box {
+    right: 530px;
+    display: flex;
+    position: absolute;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #212529;
+}
+
+.search-btn i {
+    color: #fff;
+}
+
+.search-txt {
+    border: none;
+    outline: none;
+    background: none;
+    padding: none;
+    color: #fff;
+    font-size: 16px;
+    transition: .4s;
+
+}
+
+/* recipe btn */
+
+.button-recipe {
+    top: 110px;
+    right: 340px;
+    display: flex;
+    position: absolute;
+
+    font-weight: 800;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    padding: 12px 30px;
+    color: #fff;
+    border-color: red;
+    background-color: red;
+    cursor: pointer;
+}
+
+
+/* line */
+
+hr {
+    margin: 0 auto;
+    width: 95%;
+    height: 1px;
+    background-color: #fff;
+}
