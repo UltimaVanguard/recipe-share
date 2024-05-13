@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel='stylesheet' type='text/css' href='/css/jass.css' />
+        <link rel="stylesheet" href="/css/style.css">
+        <title>RecipeShare</title>
+    </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recipe Share</title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-
-<body>
-  <header>
-    <h1>Recipe Share</h1>
-  </header>
-  <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
-  </nav>
-  <main>
-    <aside>
-      <h2>Enjoy the recipes!</h2>
-    </aside>
-    <div class="gallery">
-      {{{body}}}
-    </div>
-  </main>
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
-
+    <body>
+        <header>
+            <a href="/" class="logo">RecipeShare</a>
+            {{#if loggedIn}}
+              <div>
+                <a id="logout" href="#" class="button-login">Logout</a>
+              </div>
+              {{!-- <button id="logout" class="btn-no-style">Logout</button> --}}
+            {{else}}
+              <div>
+                <a href="/login" class="button-login">Log In</a>
+              </div>
+            {{/if}}
+        </header>
+        <main>
+          {{{body}}}
+        </main>
+        {{#if loggedIn}}
+          <script src="/js/logout.js"></script>
+        {{/if}}
+    </body>
 </html>
