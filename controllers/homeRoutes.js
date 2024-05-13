@@ -8,18 +8,21 @@ const withAuth = require('../utils/auth');
 router.get("/", async (req, res) => {
   try {
     const recipeData = await Recipe.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        } ,
-      ],
-      order: [["id", "DSC"]],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['username'],
+      //     where: {
+      //       owner_id: user_id
+      //     },
+      //   },
+      // ],
+      order: [["id", "DESC"]],
       limit: 5,
     });
 
     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
-
+    console.log(recipes);
     res.render("homepage", {
       recipes,
       // Pass the logged in flag to the template
@@ -63,7 +66,7 @@ router.get("/recipes/:id", async (req, res) => {
         {
           model: User,
           attributes: ['username'],
-        } ,
+        },
       ],
     });
 
@@ -113,6 +116,16 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  // If a session exists, redirect the request to the homepage
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup");
 });
 
 module.exports = router;
