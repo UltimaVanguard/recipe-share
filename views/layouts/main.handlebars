@@ -12,16 +12,15 @@
     <body>
         <header>
             <a href="/" class="logo">RecipeShare</a>
+            <div>
+                <a href="/profile" class="button-nav">Profile</a>
             {{#if loggedIn}}
-              <div>
-                <a id="logout" href="#" class="button-login">Logout</a>
-              </div>
+                <a id="logout" href="#" class="button-nav">Logout</a>
               {{!-- <button id="logout" class="btn-no-style">Logout</button> --}}
             {{else}}
-              <div>
-                <a href="/login" class="button-login">Log In</a>
-              </div>
+                <a href="/login" class="button-nav">Log In</a>
             {{/if}}
+            </div>
         </header>
         <main>
           {{{body}}}

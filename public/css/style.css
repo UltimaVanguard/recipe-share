@@ -41,7 +41,7 @@ header {
 
 /* button */
 
-.button-login {
+.button-nav {
     margin-top: 10px;
     font-weight: 800;
     font-size: 20px;
@@ -89,28 +89,38 @@ header {
 .search-box {
     /* right: 530px; */
     display: flex;
+    align-items: center;
+    justify-content: center;
     /* position: absolute; */
-    height: 50px;
+    height: 40px;
+    width: 100px;
     border-radius: 30px;
     padding: 10px;
     background-color: #fff;
 }
 
-.search-btn {
+.search-box a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 120%;
+}
+
+/* .search-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 30px;
-    width: 30px;
+    width: 150px;
     border-radius: 50%;
     background-color: #212529;
-}
+} */
 
-.search-btn i {
+/* .search-btn i {
     color: #fff;
-}
+} */
 
-.search-txt {
+/* .search-txt {
     border: none;
     outline: none;
     background: none;
@@ -119,13 +129,14 @@ header {
     font-size: 16px;
     transition: .4s;
 
-}
+} */
 
 /* recipe btn */
 
 .buttons {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .button-recipe {
     /* top: 110px; */
@@ -146,6 +157,7 @@ header {
     border-color: red;
     background-color: red;
     cursor: pointer;
+    margin: 5px;
 }
 
 .card {
