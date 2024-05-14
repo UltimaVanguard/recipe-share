@@ -8,7 +8,7 @@ const addRecipe = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     });
 
-      
+
     if (response.ok) {
         document.location.replace('/profile');
     } else {
@@ -19,3 +19,5 @@ const addRecipe = async (event) => {
 document
   .querySelector('.button-recipe')
   .addEventListener('click', addRecipe);
+
+ 
