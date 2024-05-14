@@ -5,7 +5,7 @@
         </div>
         <div class="buttons">
             <div class="button-recipe">
-                + New recipe
+                <a href="/newRecipe">+ New recipe</a>
             </div>
         </div>       
     </div>
@@ -14,7 +14,7 @@
     <section class="card">
         {{#each user.recipes as |recipe|}}
             <h3><a href="/recipes/{{recipe.id}}">{{recipe.name}}</a><h3>
-            <img src="#" alt="{{recipes.image}}">
+            <img src="{{recipe.image}}">
             <p>{{recipe.description}}</p>
             <hr>
         {{/each}} 

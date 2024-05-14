@@ -6,7 +6,7 @@
         <div class="buttons">
             {{#if loggedIn}}
                 <div class="button-recipe">
-                    + New recipe
+                    <a href="/newRecipe">+ New recipe</a>
                 </div>
             {{/if}}
         </div>       
@@ -21,7 +21,7 @@
                     <p>by {{user.username}}</p>
                 {{/if}}
             {{/each}}
-            <img src="#" alt="{{recipes.image}}">
+            {{!-- <img src="{{recipe.image}}"> --}}
             <p>{{recipe.description}}</p>
             <hr>
         {{/each}} 

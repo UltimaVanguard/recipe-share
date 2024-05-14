@@ -41,6 +41,11 @@ header {
 
 /* button */
 
+img {
+    width: 300px;
+    height: 300px;
+}
+
 .button-nav {
     margin-top: 10px;
     font-weight: 800;
@@ -160,6 +165,15 @@ header {
     margin: 5px;
 }
 
+.button-recipe a {
+    color: #fff;
+}
+
+.button-recipe a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 .card {
     color: #fff;
 }
@@ -265,4 +279,83 @@ hr {
 .register-link p a:hover {
     text-decoration: underline;
     color: green;
+}
+
+.new-recipe {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    border: 2px solid rgb(255, 255, 255. .2);
+    backdrop-filter:blur(20px);
+    box-shadow: 0 0 10px rgb(0, 0, 0. .2);
+}
+
+.new-recipe .ingredient-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+
+}
+
+.ingredient-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255. .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.ingredient-box input::placeholder {
+    color: #fff;
+}
+
+.new-recipe .ingredient-area {
+    width: 100%;
+    height: 350px;
+    margin: 30px 0;
+    position: relative;
+
+}
+
+.ingredient-area textarea {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255. .2);
+    font-size: 16px;
+    color: #fff;
+    padding-left: 10px;
+    resize: none
+}
+
+.ingredient-area input::placeholder {
+    color: #fff;
+}
+
+.new-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.new-recipe .btn {
+    width: 25%;
+    height: 45px;
+    background-color: #fff;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
 }
