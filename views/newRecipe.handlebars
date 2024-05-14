@@ -1,0 +1,25 @@
+<div class="container center">
+    <div class="new-recipe">
+        <h1>New Recipe</h1>
+        <form class="ingredient-form">
+            <div class="ingredient-box">
+                <input id="name" type="text" placeholder="Name" required>
+            </div>
+            <div class="ingredient-area">
+                <textarea id="description" wrap="hard" placeholder="Description" required></textarea>
+            </div>
+            <div class="ingredient-area">
+                <textarea id="instructions" wrap="hard" placeholder="Instructions" required></textarea>
+            </div>
+            <div class="ingredient-box">
+                <input id="ingredients" type="text" placeholder="Ingredient" required>
+            </div>
+            <div class="new-buttons">
+                <button id="upload_widget" class="cloudinary-button btn">Upload image</button>
+                <button type="submit" class="add-recipe btn">Add Recipe</button>    
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>
+<script src="./js/newRecipe.js" type="text/javascript"></script> 
