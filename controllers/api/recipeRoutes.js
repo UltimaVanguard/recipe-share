@@ -9,8 +9,8 @@ router.post('/', withAuth, async (req, res) => {
             description: req.body.description,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
+            image: req.body.image,
             owner_id: req.session.userId,
-            image: req.body.image
         });
   
         res.status(200).json(recipeData);

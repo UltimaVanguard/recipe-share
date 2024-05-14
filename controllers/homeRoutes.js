@@ -72,10 +72,7 @@ router.get("/recipes/:id", async (req, res) => {
     });
 
     const recipe = recipeData.get({ plain: true });
-    console.log(recipe);
-    console.log(recipe.users)
-    console.log(recipe.users[0].user_recipe);
-
+    
     res.render("recipe", {
       recipe,
       // Pass the logged in flag to the template
@@ -111,7 +108,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 })
 
-router.get("/login", (req, res) => {
+router.get("/login", async (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -121,7 +118,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/signup", (req, res) => {
+router.get("/signup", async (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -129,6 +126,10 @@ router.get("/signup", (req, res) => {
   }
 
   res.render("signup");
+});
+
+router.get("/newRecipe", withAuth, async (req, res) => {
+  res.render("newRecipe");
 });
 
 module.exports = router;

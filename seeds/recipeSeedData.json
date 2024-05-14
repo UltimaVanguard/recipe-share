@@ -4,7 +4,7 @@
         "description": "Tasty cinnamon applesauce",
         "instructions": "Remove the core from apples, mash the apples, add sugar and cinnamon",
         "ingredients": ["5 apples", "2tsp cinnamon", "2tsp sugar"],
-        "image": "placeholder",
+        "image": "./img/placeholder.jpg",
         "owner_id": "1"
     },
     {
@@ -12,7 +12,7 @@
         "description": "Nice and easy bacon and eggs for a hearty breakfast",
         "instructions": "Cook bacon on high until nice and crispy, about 10 mins. Cook eggs for about 3 minutes on each side",
         "ingredients": ["3 strips bacon", "2 eggs"],
-        "image": "placeholder",
+        "image": "./img/placeholder.jpg",
         "owner_id": "2"
     },
     {
@@ -20,7 +20,7 @@
         "description": "Good green beans to pair with anything",
         "instructions": "Dump green beans in a steamer and steam for 15 minutes",
         "ingredients": ["1lb green beans"],
-        "image": "placeholder",
+        "image": "./img/placeholder.jpg",
         "owner_id": "3"
     },
     {
@@ -28,7 +28,7 @@
         "description": "Omelet with bacon, sausage, and pork",
         "instructions": "Crack eggs into bowl and whisk them until combined. Pour onto heated pan. As it starts to firm up add the meat.",
         "ingredients": ["3 eggs", "1 strip bacon", "1/4 lb ground beef", "1/4 lb ground pork"],
-        "image": "placeholder",
+        "image": "./img/placeholder.jpg",
         "owner_id": "4"
     },
     {
@@ -36,7 +36,7 @@
         "description": "Fresh apple pie like mama used to make",
         "instructions": "I don't know how to make pie",
         "ingredients": ["1 pie crust", "3 apples"],
-        "image": "placeholder",
+        "image": "./img/placeholder.jpg",
         "owner_id": "1"
     }
 ]

@@ -2,11 +2,11 @@
     <div class="main">
         <div>
             <h1>{{recipe.name}}</h1>
-            {{#each recipe.users as |user|}}
+            {{!-- {{#each recipe.users as |user|}}
                 {{#if (findRecipeOwner recipe.owner_id user.user_recipe.user_id)}}
                     <p>by {{user.username}}</p>
                 {{/if}}
-            {{/each}}
+            {{/each}} --}}
         </div>
         <div class="buttons">
             <div class="search-box">
@@ -24,7 +24,7 @@
     <hr>
     {{!-- creates a card for each recipe --}}
     <section class="card">
-        <img src="#" alt="{{recipes.image}}">
+        <img src="{{recipe.image}}">
         <p>{{recipe.description}}</p>
         <ul>
             {{#each recipe.ingredients as |ingredient|}}
@@ -34,6 +34,6 @@
         <p>{{recipe.instructions}}</p>
     </section>
     {{#if loggedIn}}
-          <script src="/js/addRecipe.js"></script>
-        {{/if}}
+      <script src="/js/addRecipe.js"></script>
+    {{/if}}
 </div>
